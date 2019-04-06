@@ -27,6 +27,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.web.*;
@@ -216,11 +217,11 @@ public class MapApp extends Application
 		       .rotateControl(false)
 		       .scaleControl(false)
 		       .streetViewControl(false)
-		       .zoom(14)
+		       .zoom(10) //Changed from 14 to 10.
 		       .zoomControl(true);
 
 		// create map;
-		System.out.println("creating map");
+		System.out.println("Loading Map");
 		map = mapComponent.createMap(options);
         setupJSAlerts(mapComponent.getWebView());
 		System.out.println("mapInitialized done");
@@ -379,20 +380,25 @@ public class MapApp extends Application
 
 	  // Use Dijkstra as default
 	  RadioButton rbD = new RadioButton("Dijkstra");
+	  rbD.setTextFill(Paint.valueOf("Red"));
 	  rbD.setUserData("Dijkstra");
 	  rbD.setSelected(true);
 
 	  RadioButton rbA = new RadioButton("A*");
+	  rbA.setTextFill(Paint.valueOf("Green"));
 	  rbA.setUserData("A*");
 
 	  RadioButton rbB = new RadioButton("BFS");
 	  rbB.setUserData("BFS");
+	  rbB.setTextFill(Paint.valueOf("Pink"));
 	  
 	  RadioButton rbGreedyTSP = new RadioButton("GreedyTSP");
 	  rbGreedyTSP.setUserData("GreedyTSP");
+	  rbGreedyTSP.setTextFill(Paint.valueOf("Yellow"));
 	  
 	  RadioButton rbGreedy2OptTSP = new RadioButton("Greedy2OptTSP");
 	  rbGreedy2OptTSP.setUserData("Greedy2OptTSP");
+	  rbGreedy2OptTSP.setTextFill(Paint.valueOf("Grey"));
 	  
 
 	  rbB.setToggleGroup(group);
